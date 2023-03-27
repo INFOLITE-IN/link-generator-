@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Share Link Generator</h1>
+  </div>
+  <div id="app">
+    <form @submit.prevent="generateURLs">
+      <h2>Input</h2>
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input class="form-control" name="url" type="url" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" required v-model.trim="url">
+      </div>
+      <div class="form-group">
+        <label for="url">Text</label>
+        <input class="form-control" name="text" type="text" required v-model.trim="text">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Generate</button>
+      </div>
+    </form>
+    <template v-if="success">
+    <h2>Output</h2>
+    <div class="form-group">
+      <label for="url">Facebook <a :href="facebookURL" target="_blank" rel="noopener noreferrer">Test</a></label>
+      <input name="url" type="url" class="form-control" v-model="facebookURL">
+    </div>
+    <div class="form-group">
+      <label for="url">Twitter <a :href="twitterURL" target="_blank" rel="noopener noreferrer">Test</a></label>
+      <input name="text" type="text" class="form-control" v-model="twitterURL">
+    </div>
+    <div class="form-group">
+      <label for="url">LinkedIn <a :href="linkedinURL" target="_blank" rel="noopener noreferrer">Test</a></label>
+      <input name="text" type="text" class="form-control" v-model="linkedinURL">
+    </div>
+    </template>
+  </div>
+</div>
